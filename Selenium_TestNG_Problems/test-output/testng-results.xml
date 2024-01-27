@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-01-28T02:07:53 IST" name="Default suite" finished-at="2024-01-28T02:12:00 IST" duration-ms="247457">
+    <groups>
+    </groups>
+    <test started-at="2024-01-28T02:07:53 IST" name="Default test" finished-at="2024-01-28T02:12:00 IST" duration-ms="247457">
+      <class name="testNGAutomationAnywhereTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testNGAutomationAnywhereTest@71a8adcf]" started-at="2024-01-28T02:07:53 IST" name="setUp" finished-at="2024-01-28T02:10:06 IST" duration-ms="133148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testProcessDiscoveryNavigation()[pri:0, instance:testNGAutomationAnywhereTest@71a8adcf]" started-at="2024-01-28T02:10:06 IST" name="testProcessDiscoveryNavigation" finished-at="2024-01-28T02:11:39 IST" duration-ms="92809" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProcessDiscoveryNavigation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testNGAutomationAnywhereTest@71a8adcf]" started-at="2024-01-28T02:11:39 IST" name="tearDown" finished-at="2024-01-28T02:12:00 IST" duration-ms="21438" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testNGAutomationAnywhereTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
