@@ -1,0 +1,72 @@
+package com.pd.programs;
+import java.time.Duration;
+import org.openqa.selenium.By;
+//import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+
+public class AutomationAnywhereDemoTest {
+
+    public static void main(String[] args) {
+        // Set the path to the ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe");
+
+        // Initialize ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        try {
+            // Navigate to the website
+            driver.get("https://www.automationanywhere.com/");
+
+            // Maximize the browser window
+            driver.manage().window().maximize();
+
+            // Create a WebDriverWait instance with a timeout of 10 seconds
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+            
+            // a. Click on ACCEPT COOKIES (if present)
+            acceptCookies(driver);
+
+            // b. Click on Request Demo button
+            By requestDemoButton = By.xpath("//a[text()='Request Demo']");
+            WebElement requestDemoElement = wait.until(ExpectedConditions.elementToBeClickable(requestDemoButton));
+            requestDemoElement.click();
+
+            // c. Verify that the page is navigated to https://www.automationanywhere.com/request-live-demo
+            wait.until(ExpectedConditions.urlToBe("https://www.automationanywhere.com/request-live-demo"));
+
+            // d. Verify the Label Names for First Name and Last Name
+            By firstNameLabel = By.xpath("//label[text()='First Name']");
+            By lastNameLabel = By.xpath("//label[text()='Last Name']");
+
+            WebElement firstNameLabelElement = driver.findElement(firstNameLabel);
+            WebElement lastNameLabelElement = driver.findElement(lastNameLabel);
+
+            System.out.println("First Name Label: " + firstNameLabelElement.getText());
+            System.out.println("Last Name Label: " + lastNameLabelElement.getText());
+
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
+    }
+
+    private static void acceptCookies(WebDriver driver) {
+        try {
+            By acceptCookiesButton = By.xpath("//*[@id=\"onetrust-accept-btn-handler\"],'Accept All Cookies')]");
+            WebElement acceptCookiesElement = driver.findElement(acceptCookiesButton);
+
+            if (acceptCookiesElement.isDisplayed()) {
+                acceptCookiesElement.click();
+            }
+        } catch (Exception e) {
+            // Handle exception if Accept Cookies button is not found or clickable
+            System.out.println("Exception while accepting cookies: " + e.getMessage());
+        }
+    }
+}

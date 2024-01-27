@@ -1,0 +1,36 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.By;
+
+public class AutomationAnywhereTest {
+
+    public static void main(String[] args) {
+        // Set the path to the ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "path/to/new/chromedriver.exe");
+
+        // Initialize ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        try {
+            // Navigate to the website
+            driver.get("https://www.automationanywhere.com/");
+
+            // Maximize the browser window
+            driver.manage().window().maximize();
+
+            // Create a WebDriverWait instance with a timeout of 10 seconds
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+
+            // Example usage of WebDriverWait to wait for an element to be clickable
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Process Discovery']"))).click();
+
+            // Additional code...
+
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
+    }
+}
